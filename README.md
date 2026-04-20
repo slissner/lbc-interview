@@ -10,9 +10,9 @@ Code interview for "LBC".
 ## Getting Started
 
 1. Build a fat JAR with `./gradlew bootJar`
-2. In your terminal window, run `java -jar build/libs/interview-0.0.1-SNAPSHOT.jar`
-3. Run a curl request to
-   `curl  http://localhost:8080/fizzbuzz\?int1\=3\&int2\=5\&limit\=1000000\&str1\=Ilove\&str2\=lbc`
+2. Start server `java -jar build/libs/interview-0.0.1-SNAPSHOT.jar`
+3. Send a curl request to
+   `curl http://localhost:8080/fizzbuzz\?int1\=3\&int2\=5\&limit\=100000\&str1\=Ilove\&str2\=lbc`
 
 ## API
 
