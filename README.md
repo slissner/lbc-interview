@@ -11,7 +11,22 @@ Code interview for "LBC".
 
 1. Build a fat JAR with `./gradlew bootJar`
 2. In your terminal window, run `java -jar build/libs/interview-0.0.1-SNAPSHOT.jar`
-3. Run a curl request to `curl  http://localhost:8080/fizzbuzz\?int1\=3\&int2\=5\&limit\=1000000\&str1\=Ilove\&str2\=lbc`
+3. Run a curl request to
+   `curl  http://localhost:8080/fizzbuzz\?int1\=3\&int2\=5\&limit\=1000000\&str1\=Ilove\&str2\=lbc`
+
+## API
+
+Run a fizz buzz computation:
+
+```sh
+curl http://localhost:8080/fizzbuzz\?int1\=3\&int2\=6\&limit\=1000\&str1\=Ilove\&str2\=lbc
+```
+
+Get statistics on the most frequently used request:
+
+```sh
+curl http://localhost:8080/fizzbuzz/statistics
+```
 
 ## Demo
 
@@ -19,5 +34,7 @@ In the following video shows a sequence were we run 1,000,000 fizzbuzz computati
 low, as we are streaming the response. The CPU runs a bit hot. We could throttle the CPU consumption, but as this is
 just an interview, I left it as is.
 
-![](docs/demo.mov)
-
+<video width="320" height="240" controls>
+   <source src="./docs/demo.mov" type="video/quicktime">
+   Your browser does not support the video tag.
+</video>
