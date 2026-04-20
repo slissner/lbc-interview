@@ -1,11 +1,13 @@
 package com.slissner.lbc.interview.presentation
 
 import com.slissner.lbc.interview.application.CustomFizzBuzzService
-import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import org.slf4j.LoggerFactory
-import org.springframework.http.ResponseEntity
+import org.springframework.http.MediaType
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
 
 @Controller
@@ -13,16 +15,25 @@ class CustomFizzBuzzController(val customFizzBuzzService: CustomFizzBuzzService)
 
     private val log = LoggerFactory.getLogger(CustomFizzBuzzController::class.java)
 
-    @GetMapping("/fizzbuzz")
+    @GetMapping("/fizzbuzz", produces = [MediaType.APPLICATION_NDJSON_VALUE])
     @ResponseBody
-    suspend fun getCustomFizzBuzz(): ResponseEntity<String> {
-        log.info("User requested custom fizz buzz.")
+    suspend fun getCustomFizzBuzz(
+        @RequestParam int1: Int,
+        @RequestParam int2: Int,
+        @RequestParam limit: Int,
+        @RequestParam str1: String,
+        @RequestParam str2: String
+    ): Flow<CustomFizzBuzzResponseDto> {
+        log.info("User requested custom fizz buzz. [int1=$int1, int2=$int2, limit=$limit, str1=$str1, str2=$str2]")
 
-        val result = customFizzBuzzService.calcCustomFizzBuzz(3, 5, 100, "Fizz", "Buzz")
+        val fizzBuzzFlow = customFizzBuzzService.calcCustomFizzBuzz(
+            int1 = int1,
+            int2 = int2,
+            limit = limit,
+            str1 = str1,
+            str2 = str2
+        ).map { CustomFizzBuzzResponseDto(it) }
 
-        // TODO return result as stream - warning: currently loads into memory and blocks thread
-        log.debug("TODO fizz buzz result: {}", result.toList())
-
-        return ResponseEntity.ok("TODO")
+        return fizzBuzzFlow
     }
 }

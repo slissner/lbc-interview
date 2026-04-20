@@ -9,4 +9,15 @@ Code interview for "LBC".
 
 ## Getting Started
 
-TODO
+1. Build a fat JAR with `./gradlew bootJar`
+2. In your terminal window, run `java -jar build/libs/interview-0.0.1-SNAPSHOT.jar`
+3. Run a curl request to `curl  http://localhost:8080/fizzbuzz\?int1\=3\&int2\=5\&limit\=1000000\&str1\=Ilove\&str2\=lbc`
+
+## Demo
+
+In the following video shows a sequence were we run 1,000,000 fizzbuzz computations. See that the memory pressure is
+low, as we are streaming the response. The CPU runs a bit hot. We could throttle the CPU consumption, but as this is
+just an interview, I left it as is.
+
+![](docs/demo.mov)
+

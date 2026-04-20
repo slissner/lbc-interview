@@ -1,43 +1,43 @@
 package com.slissner.lbc.interview.domain
 
-import org.junit.jupiter.api.Assertions.*
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 class CustomFizzBuzzTest {
 
     @Test
-    fun test_apply_given_multipleOfInt1AndInt2_then_expectConcatStr1Str2() {
+    fun `should apply, given multiple of int1 and int2, then expect concat str1str2`() {
         val result = CustomFizzBuzz(int1 = 3, int2 = 5, limit = 100, str1 = "Fizz", str2 = "Buzz", number = 15).apply()
-        assertEquals("FizzBuzz", result)
+        assertThat("FizzBuzz").isEqualTo(result)
     }
 
     @Test
-    fun test_apply_given_multipleOfInt1_then_expectConcatStr1() {
+    fun `should apply given multipleOfInt1 then expectConcatStr1`() {
         val result = CustomFizzBuzz(int1 = 3, int2 = 5, limit = 100, str1 = "Fizz", str2 = "Buzz", number = 9).apply()
-        assertEquals("Fizz", result)
+        assertThat("Fizz").isEqualTo(result)
     }
 
     @Test
-    fun test_apply_given_multipleOfInt2_then_expectConcatStr2() {
+    fun `should apply, given multipleOfInt2, then expectConcatStr2`() {
         val result = CustomFizzBuzz(int1 = 3, int2 = 5, limit = 100, str1 = "Fizz", str2 = "Buzz", number = 10).apply()
-        assertEquals("Buzz", result)
+        assertThat("Buzz").isEqualTo(result)
     }
 
     @Test
-    fun test_apply_given_noMultiple_then_expectNumberAsIs() {
+    fun `should apply, given no multiple, then expect number as is`() {
         val result = CustomFizzBuzz(int1 = 3, int2 = 5, limit = 100, str1 = "Fizz", str2 = "Buzz", number = 7).apply()
-        assertEquals("7", result)
+        assertThat("7").isEqualTo(result)
     }
 
     @Test
-    fun test_emitter() {
+    fun `should return emitter`() {
         val emitter1 = CustomFizzBuzz.emitter(int1 = 3, int2 = 5, limit = 100, str1 = "Fizz", str2 = "Buzz")
         val emitter2 = CustomFizzBuzz.emitter(int1 = 6, int2 = 7, limit = 100, str1 = "Fizz", str2 = "Buzz")
 
-        assertNotNull(emitter1)
-        assertEquals("FizzBuzz", emitter1(15).apply())
+        assertThat(emitter1).isNotNull
+        assertThat("FizzBuzz").isEqualTo(emitter1(15).apply())
 
-        assertNotNull(emitter2)
-        assertEquals("15", emitter2(15).apply())
+        assertThat(emitter2).isNotNull
+        assertThat("15").isEqualTo(emitter2(15).apply())
     }
 }

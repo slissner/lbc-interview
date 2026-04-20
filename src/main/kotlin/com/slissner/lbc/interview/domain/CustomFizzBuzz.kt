@@ -40,7 +40,7 @@ data class CustomFizzBuzz(
             } else {
                 number.toString()
             }
-        log.debug("Calculated fizz buzz for number. [number=$number, result=$result]")
+        log.debug("Calculated fizz buzz for number. [number={}, result={}]", number, result)
         return result
     }
 

@@ -1,0 +1,20 @@
+package com.slissner.lbc.interview.application
+
+import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.test.runTest
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
+
+class CustomFizzBuzzServiceTest {
+
+    private val service = CustomFizzBuzzService()
+
+    @Test
+    fun `should return a custom fizz buzz flow`() = runTest {
+
+        val result = service.calcCustomFizzBuzz(int1 = 3, int2 = 5, limit = 5, str1 = "fizz", str2 = "buzz")
+            .toList()
+
+        assertEquals(listOf("1", "2", "fizz", "4", "buzz"), result)
+    }
+}
