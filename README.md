@@ -34,7 +34,5 @@ In the following video shows a sequence were we run 1,000,000 fizzbuzz computati
 low, as we are streaming the response. The CPU runs a bit hot. We could throttle the CPU consumption, but as this is
 just an interview, I left it as is.
 
-<video width="320" height="240" controls>
-   <source src="./docs/demo.mov" type="video/quicktime">
-   Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/e9b7448c-75f0-4314-9a8a-fbfd827906b1
+
