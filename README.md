@@ -30,7 +30,7 @@ curl http://localhost:8080/fizzbuzz/statistics
 
 ## Demo
 
-In the following video shows a sequence were we run 1,000,000 fizzbuzz computations. See that the memory pressure is
+In the following video shows a sequence where we run 1,000,000 fizzbuzz computations. See that the memory pressure is
 low, as we are streaming the response. The CPU runs a bit hot. We could throttle the CPU consumption, but as this is
 just an interview, I left it as is.
 

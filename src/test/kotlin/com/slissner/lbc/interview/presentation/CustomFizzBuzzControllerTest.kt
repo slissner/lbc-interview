@@ -1,6 +1,7 @@
 package com.slissner.lbc.interview.presentation
 
 import com.slissner.lbc.interview.application.CustomFizzBuzzService
+import com.slissner.lbc.interview.application.CustomFizzBuzzStatisticsService
 import kotlinx.coroutines.flow.flow
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
@@ -21,6 +22,9 @@ class CustomFizzBuzzControllerTest {
 
     @MockitoBean
     private lateinit var customFizzBuzzService: CustomFizzBuzzService
+
+    @MockitoBean
+    private lateinit var statisticsService: CustomFizzBuzzStatisticsService
 
     @Test
     fun `should return fizzbuzz stream`() {
